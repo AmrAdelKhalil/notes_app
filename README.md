@@ -30,7 +30,7 @@ Rails version: '>= 6.0.0'
 ## Mission
 - [x] Generate a rails app
 - [x] Copy this README.md to your app
-- [ ] add user authentication to your app
+- [x] add user authentication to your app
 - [ ] Create CRUD for the notes
 - [ ] Add collaboration feature
 - [ ] Add a guide in this readme under Project Setup on how to run your project. Also add which database you used.
@@ -53,6 +53,19 @@ Rails version: '>= 6.0.0'
 
 
 ## Project setup
+
+#### prerequisites
+* Yarn installed
+* Webpacker installed
+
+You can use this [link](https://stackoverflow.com/a/58252546/8436554) for making it easy for you to install the environment.
+
+#### problems you may face
+If you faced `Increasing-the-amount-of-inotify-watchers` while trying to access the `http://localhost:3000`,
+follow this [link](https://github.com/guard/listen/wiki/Increasing-the-amount-of-inotify-watchers) to solve it.
+
+#### steps
+
 ```
 bundle install
 ```
