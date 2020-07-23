@@ -1,0 +1,20 @@
+<script type = "text/javascript" charset = "utf-8" >
+  var current_user_id = '<%= current_user.id %>';
+  $(document).ready(function(){
+      setInterval(function(){
+          $.ajax({
+              type: "GET",
+              url: '<%= url %>',
+              contentType: "application/json; charset=utf-8",
+              dataType: "json",
+              success: function(data){
+                  $("#note_title").text(data['title']);
+                  $("#note_body").text(data['body']);
+              },
+              failure: function(errMsg) {
+                  alert(errMsg);
+              }
+          });
+      }, 5000);
+  });
+</script>

@@ -10,5 +10,15 @@
   <%= @note.body %>
 </p>
 
+<p>
+  <strong>hyperlinks:</strong>
+  </br>
+  <% @note.hyper_links.each do |hyper_link| %>
+    <strong><%= hyper_link.mode %> link</strong>:
+    <%= link_to 'visit', hyperlink_url(hyper_link.uuid) %> (<%= hyperlink_url(hyper_link.uuid) %>)
+    </br>
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_user_note_path(current_user, @note) %> |
 <%= link_to 'Back', user_notes_path(current_user) %>

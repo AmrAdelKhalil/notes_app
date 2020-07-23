@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= hyperlink.note.title %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= hyperlink.note.body %>
+</p>
+
+<%= link_to 'Back', user_notes_path(current_user) %>

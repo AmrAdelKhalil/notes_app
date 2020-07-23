@@ -1,0 +1,5 @@
+<% if @hyperlink.view? %>
+  <%= render 'view_mode', hyperlink: @hyperlink %>
+<% else %>
+  <%= render 'edit_mode', hyperlink: @hyperlink %>
+<% end %>

@@ -1,11 +1,16 @@
 class NotesController < ApplicationController
-  before_action :set_note, only: [:show, :edit, :update, :destroy]
+  before_action :set_note, only: [:edit, :update, :destroy]
 
   def index
     @notes = Note.all
   end
 
   def show
+    @note = Note.includes(:hyper_links).where(id: params[:id]).first
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @note, only: [:title, :body]}
+    end
   end
 
   def new
