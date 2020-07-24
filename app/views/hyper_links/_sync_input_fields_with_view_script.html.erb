@@ -1,0 +1,49 @@
+<script type = "text/javascript" charset = "utf-8" >
+    $(document).ready(function(){
+        var typingTimer;
+        var doneTypingInterval = 3000;
+        var $title_input = $('#title_input');
+        var $body_input = $('#body_input');
+
+        $title_input.on('keyup', function () {
+            clearTimeout(typingTimer);
+            typingTimer = setTimeout(update_note, doneTypingInterval);
+        });
+
+        $body_input.on('keyup', function () {
+            clearTimeout(typingTimer);
+            typingTimer = setTimeout(update_note, doneTypingInterval);
+        });
+
+        $title_input.on('keydown', function () {
+            clearTimeout(typingTimer);
+        });
+
+        $body_input.on('keydown', function () {
+            clearTimeout(typingTimer);
+        });
+
+        function update_note() {
+            var input = {title: $("#note_title").text(), body: $("#note_body").text()};
+            $.ajax({
+                type: "PATCH",
+                url: '<%= url %>',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                data: JSON.stringify({ note: input }),
+                success: function(data){},
+                failure: function(errMsg) {
+                    alert(errMsg);
+                }
+            });
+        }
+
+        $("#title_input").on("input", function() {
+            $("#note_title").text($(this).val());
+        });
+
+        $("#body_input").on("input", function() {
+            $("#note_body").text($(this).val());
+        });
+    });
+</script>

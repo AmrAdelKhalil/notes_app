@@ -38,7 +38,7 @@ class NotesController < ApplicationController
     respond_to do |format|
       if @note.update(note_params)
         format.html { redirect_to user_note_path(current_user, @note), notice: 'Note was successfully updated.' }
-        format.json { render :show, status: :ok, location: @note }
+        format.json { render json: @note, status: :ok }
       else
         format.html { render :edit }
         format.json { render json: @note.errors, status: :unprocessable_entity }

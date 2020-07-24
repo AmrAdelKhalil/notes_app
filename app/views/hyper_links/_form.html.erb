@@ -1,0 +1,13 @@
+<%= form_with(model: note, local: true, url: url) do |form| %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: 'title_input' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :body %>
+    <%= form.text_area :body, id: 'body_input' %>
+  </div>
+
+<% end %>

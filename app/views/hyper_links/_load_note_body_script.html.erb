@@ -1,6 +1,16 @@
 <script type = "text/javascript" charset = "utf-8" >
-  var current_user_id = '<%= current_user.id %>';
   $(document).ready(function(){
+      function update_input_fields() {
+          if($("#title_input").length){
+              console.log($("#note_title").text());
+              $("#title_input").val($("#note_title").text());
+          }
+          if($("#body_input").length){
+              console.log($("#note_body").text());
+              $("#body_input").val($("#note_body").text());
+          }
+      };
+
       setInterval(function(){
           $.ajax({
               type: "GET",
@@ -10,6 +20,7 @@
               success: function(data){
                   $("#note_title").text(data['title']);
                   $("#note_body").text(data['body']);
+                  update_input_fields();
               },
               failure: function(errMsg) {
                   alert(errMsg);
