@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users, only: [] do
-    resources :notes
+    resources :notes do
+      collection do
+        get 'search', action: :search, as: :search
+      end
+    end
   end
 
   get 'hyperlink/:id', action: :show, controller: 'hyper_links', as: :hyperlink

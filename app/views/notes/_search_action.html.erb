@@ -1,0 +1,22 @@
+<script type = "text/javascript" charset = "utf-8" >
+    $(document).ready(function(){
+
+        $("#src-btn").click(function(){
+            console.log($("#search-note").val())
+            $.ajax({
+                type: "GET",
+                url: '<%= url %>',
+                contentType: "application/json; charset=utf-8",
+                dataType: "script",
+                data: {
+                    term: $("#search-note").val()
+                },
+                success: function(data){
+                },
+                failure: function(errMsg) {
+                    alert(errMsg);
+                }
+            });
+        })
+    });
+</script>

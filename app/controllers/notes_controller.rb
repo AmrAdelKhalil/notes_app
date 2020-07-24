@@ -2,7 +2,7 @@ class NotesController < ApplicationController
   before_action :set_note, only: [:edit, :update, :destroy]
 
   def index
-    @notes = Note.all
+    @notes = current_user.notes
   end
 
   def show
@@ -51,6 +51,13 @@ class NotesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to user_notes_url(current_user), notice: 'Note was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def search
+    @notes = current_user.notes.where("title LIKE ?", "%#{params[:term]}%")
+    respond_to do |format|
+      format.js
     end
   end
 
