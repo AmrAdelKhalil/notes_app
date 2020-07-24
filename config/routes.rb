@@ -7,4 +7,10 @@ Rails.application.routes.draw do
   end
 
   get 'hyperlink/:id', action: :show, controller: 'hyper_links', as: :hyperlink
+
+  resources :collaborators, only: %i(index update) do
+    collection do
+      get 'collaboration_info/:user_id', action: :get_collaboration_information, as: :collab_info
+    end
+  end
 end

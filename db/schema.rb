@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_23_140547) do
+ActiveRecord::Schema.define(version: 2020_07_24_135252) do
+
+  create_table "collaborators", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "hyper_link_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["hyper_link_id"], name: "index_collaborators_on_hyper_link_id"
+    t.index ["user_id"], name: "index_collaborators_on_user_id"
+  end
 
   create_table "hyper_links", force: :cascade do |t|
     t.integer "note_id", null: false

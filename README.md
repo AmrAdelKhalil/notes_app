@@ -31,14 +31,14 @@ Rails version: '>= 6.0.0'
 - [x] Generate a rails app
 - [x] Copy this README.md to your app
 - [x] add user authentication to your app
-- [ ] Create CRUD for the notes
-- [ ] Add collaboration feature
+- [x] Create CRUD for the notes
+- [x] Add collaboration feature
 - [ ] Add a guide in this readme under Project Setup on how to run your project. Also add which database you used.
 - [ ] Push your code to Github
 - [ ] Submit your git repository to hr@pangea-technology.com and describe your changes precisely
 
 ## Bonus
-- [ ] Add view only option to collaboration link
+- [x] Add view only option to collaboration link
 - [ ] Add the email of users collaborating on the note now with the current user
 - [ ] Add text search to the app which searches in all notes
 
