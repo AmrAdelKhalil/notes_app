@@ -39,7 +39,7 @@ Rails version: '>= 6.0.0'
 
 ## Bonus
 - [x] Add view only option to collaboration link
-- [ ] Add the email of users collaborating on the note now with the current user
+- [x] Add the email of users collaborating on the note now with the current user
 - [ ] Add text search to the app which searches in all notes
 
 

@@ -10,6 +10,12 @@
   <p id="note_body"><%= hyperlink.note.body %></p>
 </p>
 
+---------------------------------------------------------------------
+</hr>
+<h1>Most recently collaborators</h1>
+<p id="collabs"></p>
+
 <%= link_to 'Back', user_notes_path(current_user) %>
 
+<%= render 'hyper_links/collaboration_handler', hyperlink: hyperlink%>
 <%= render 'hyper_links/load_note_body_script', hyperlink: hyperlink, url:  user_note_url(current_user, hyperlink.note.id)%>

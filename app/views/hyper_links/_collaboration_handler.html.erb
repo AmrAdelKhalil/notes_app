@@ -1,0 +1,56 @@
+<script type = "text/javascript" charset = "utf-8" >
+    $(document).ready(function(){
+        function start_update_collaboration(collaboration_id) {
+            var url = '<%= collaborator_url(0) %>';
+            url = url.replace('/0', '/' + collaboration_id);
+            setInterval(function(){
+                $.ajax({
+                    type: "PATCH",
+                    url: url,
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function(data){},
+                    failure: function(errMsg) {
+                        alert(errMsg);
+                    }
+                });
+            }, 5000);
+        }
+
+        function start_update_collaborators(collaboration_id) {
+            var url = '<%= collaborators_url %>';
+            setInterval(function(){
+                $.ajax({
+                    type: "GET",
+                    url: url,
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    data: {
+                        "hyper_link_id": '<%= hyperlink.id %>'
+                    },
+                    success: function(data){
+                        $("#collabs").text(data["collaborators"].join(','))
+                    },
+                    failure: function(errMsg) {
+                        alert(errMsg);
+                    }
+                });
+            }, 5000);
+        }
+
+        $.ajax({
+            type: "GET",
+            url: '<%= collab_info_collaborators_url(current_user.id, hyperlink.id) %>',
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function(data){
+                start_update_collaboration(data["id"]);
+                start_update_collaborators(data["id"]);
+            },
+            failure: function(errMsg) {
+                alert(errMsg);
+            }
+        });
+    });
+
+</script>

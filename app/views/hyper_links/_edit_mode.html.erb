@@ -17,7 +17,14 @@
 
 <%= render 'form', note: hyperlink.note, url:user_note_path(current_user, hyperlink.note) %>
 
+
+---------------------------------------------------------------------
+</hr>
+<h1>Most recently collaborators</h1>
+<p id="collabs"></p>
+
 <%= link_to 'Back', user_notes_path(current_user) %>
 
+<%= render 'hyper_links/collaboration_handler', hyperlink: hyperlink%>
 <%= render 'hyper_links/load_note_body_script', hyperlink: hyperlink, url:  user_note_url(current_user, hyperlink.note.id)%>
 <%= render 'hyper_links/sync_input_fields_with_view_script', hyperlink: hyperlink, url:  user_note_url(current_user, hyperlink.note.id)%>

@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   resources :collaborators, only: %i(index update) do
     collection do
-      get 'collaboration_info/:user_id', action: :get_collaboration_information, as: :collab_info
+      get 'collaboration_info/:user_id/hyperlink/:hyper_link_id', action: :get_collaboration_information, as: :collab_info
     end
   end
 end
