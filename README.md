@@ -33,14 +33,14 @@ Rails version: '>= 6.0.0'
 - [x] add user authentication to your app
 - [x] Create CRUD for the notes
 - [x] Add collaboration feature
-- [ ] Add a guide in this readme under Project Setup on how to run your project. Also add which database you used.
-- [ ] Push your code to Github
-- [ ] Submit your git repository to hr@pangea-technology.com and describe your changes precisely
+- [x] Add a guide in this readme under Project Setup on how to run your project. Also add which database you used.
+- [x] Push your code to Github
+- [x] Submit your git repository to hr@pangea-technology.com and describe your changes precisely
 
 ## Bonus
 - [x] Add view only option to collaboration link
 - [x] Add the email of users collaborating on the note now with the current user
-- [ ] Add text search to the app which searches in all notes
+- [x] Add text search to the app which searches in all notes
 
 
 ## Please note
@@ -65,9 +65,24 @@ If you faced `Increasing-the-amount-of-inotify-watchers` while trying to access 
 follow this [link](https://github.com/guard/listen/wiki/Increasing-the-amount-of-inotify-watchers) to solve it.
 
 #### steps
+* clone repo `git clone https://github.com/AmrAdelKhalil/notes_app.git`
+* change directory to the repo
+* make sure the `prerequisites` are installed and the yarn is updated
+* run `bundle install`
+* run `rake db:create`
+* run rake `db:migrate`
+* run the server using `rails s`
 
-```
-bundle install
-```
-...
+#### DB
+* I used `sqlite` the default which comes with rails
 
+#### More info
+* You can start using `localhost:3000/users/sign_up` where you can make a new user
+* You can create new Note after that you can show it and find the two types of link `view` and `edit`
+* The hyperlink pages are using ajax requests, So wait for 5 seconds and the collaborators will be updated
+* Making changes will also be reflected within 3 seconds.
+
+#### Things to be enhanced
+* I can enhance the getting collaborators info by storing this in a cahce (like Redis)
+* Using a background job to clear the collaboration table which will enhance the way we save important
+data and not to remove the old data (keeping the collaborators table small as possible)
